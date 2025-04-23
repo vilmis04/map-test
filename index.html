@@ -1,13 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <title>Leaflet GPX/KML Example</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Plugins for GPX and KML -->
+  <script src="https://unpkg.com/leaflet-gpx/gpx.js"></script>
+  <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+  <style>
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map').setView([37.7749, -122.4194], 14);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Load GPX
+    new L.GPX('./src/assets/maps/kaunas_mock_route.gpx', {
+      async: true,
+      marker_options: {
+        startIconUrl: '',
+        endIconUrl: '',
+        shadowUrl: ''
+      }
+    }).on('loaded', function (e) {
+      map.fitBounds(e.target.getBounds());
+    }).addTo(map);
+
+    // OR load KML using omnivore
+    // omnivore.kml('path/to/your-file.kml')
+    //   .on('ready', function() {
+    //     map.fitBounds(this.getBounds());
+    //   })
+    //   .addTo(map);
+  </script>
+</body>
+
 </html>

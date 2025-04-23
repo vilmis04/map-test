@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="MockStravaRoute" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Mock Strava Route</name>
+    <desc>Morning ride through the city</desc>
+  </metadata>
+  <trk>
+    <name>Mock Strava Route</name>
+    <trkseg>
+      <trkpt lat="37.7749" lon="-122.4194"></trkpt>
+      <trkpt lat="37.7750" lon="-122.4180"></trkpt>
+      <trkpt lat="37.7755" lon="-122.4165"></trkpt>
+      <trkpt lat="37.7760" lon="-122.4150"></trkpt>
+      <trkpt lat="37.7770" lon="-122.4130"></trkpt>
+      <trkpt lat="37.7780" lon="-122.4110"></trkpt>
+      <trkpt lat="37.7790" lon="-122.4100"></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+
