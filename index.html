@@ -5,10 +5,9 @@
   <title>Leaflet GPX/KML Example</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <!-- Plugins for GPX and KML -->
-  <script src="https://unpkg.com/leaflet-gpx/gpx.js"></script>
-  <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     #map {
       height: 100vh;
@@ -17,33 +16,8 @@
 </head>
 
 <body>
-  <div id="map"></div>
-  <script>
-    var map = L.map('map').setView([37.7749, -122.4194], 14);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data © OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Load GPX
-    new L.GPX('./src/assets/maps/kaunas_mock_route.gpx', {
-      async: true,
-      marker_options: {
-        startIconUrl: '',
-        endIconUrl: '',
-        shadowUrl: ''
-      }
-    }).on('loaded', function (e) {
-      map.fitBounds(e.target.getBounds());
-    }).addTo(map);
-
-    // OR load KML using omnivore
-    // omnivore.kml('path/to/your-file.kml')
-    //   .on('ready', function() {
-    //     map.fitBounds(this.getBounds());
-    //   })
-    //   .addTo(map);
-  </script>
+  <div id='root' />
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
