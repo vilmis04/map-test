@@ -11,7 +11,7 @@ function App() {
   const uploadFile = (newFile: string) => setFile(newFile);
 
   useEffect(() => {
-    fetch("/kaunas_mock_route.gpx")
+    fetch("map-test/kaunas_mock_route.gpx")
       .then((response) => {
         if (!response.ok) {
           throw new Error("failed to fetch the file");
