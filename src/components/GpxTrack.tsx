@@ -1,28 +1,31 @@
-import { useMap } from 'react-leaflet';
-import { useEffect } from 'react';
-import L from 'leaflet';
+import { useMap } from "react-leaflet";
+import { useEffect } from "react";
+import L from "leaflet";
+import { IMapFile } from "../types/common/IMapFile";
 
-export const GpxTrack = () => {
+export const GpxTrack = ({ file }: IMapFile) => {
   const map = useMap();
 
   useEffect(() => {
-    new L.GPX('/kaunas_mock_route.gpx', {
+    if (!file) return;
+
+    new L.GPX(file, {
       async: true,
       marker_options: {
-        startIconUrl: '',
-        endIconUrl: '',
-        shadowUrl: '',
+        startIconUrl: "",
+        endIconUrl: "",
+        shadowUrl: "",
       },
       polyline_options: {
-        color: 'blue',
+        color: "blue",
         weight: 4,
       },
     })
-      .on('loaded', (e) => {
+      .on("loaded", (e) => {
         map.fitBounds(e.target.getBounds());
       })
       .addTo(map);
-  }, [map]);
+  }, [map, file]);
 
   return null;
 };

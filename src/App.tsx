@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ControlPanel } from "./components/ControlPanel";
 import { RenderedMap } from "./components/RenderedMap";
 
@@ -6,6 +6,20 @@ function App() {
   const name = useState<string>("");
   const label1 = useState<string>("");
   const label2 = useState<string>("");
+
+  const [file, setFile] = useState<string | null>(null);
+  const uploadFile = (newFile: string) => setFile(newFile);
+
+  useEffect(() => {
+    fetch("/kaunas_mock_route.gpx")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("failed to fetch the file");
+        }
+        return response.text();
+      })
+      .then((content) => setFile(content));
+  }, []);
 
   return (
     <div style={{ display: "flex", padding: "5rem" }}>
@@ -17,7 +31,7 @@ function App() {
           flexDirection: "column",
         }}
       >
-        <RenderedMap />
+        <RenderedMap file={file} />
         <div
           style={{
             padding: "1rem",
@@ -47,6 +61,7 @@ function App() {
             "Label 1": label1[0],
             "Label 2": label2[0],
           }}
+          uploadFile={uploadFile}
         />
       </div>
     </div>
