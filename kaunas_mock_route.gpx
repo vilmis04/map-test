@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="MockStravaRoute" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Sixth Fort to Pažaislis Monastery</name>
+    <desc>Mock route from Sixth Fort to Pažaislis Monastery in Kaunas, Lithuania</desc>
+  </metadata>
+  <trk>
+    <name>Sixth Fort to Pažaislis Monastery</name>
+    <trkseg>
+      <trkpt lat="54.901046" lon="23.979488"></trkpt>
+      <trkpt lat="54.900000" lon="23.985000"></trkpt>
+      <trkpt lat="54.898500" lon="23.990000"></trkpt>
+      <trkpt lat="54.896000" lon="23.995000"></trkpt>
+      <trkpt lat="54.893500" lon="24.000000"></trkpt>
+      <trkpt lat="54.891000" lon="24.005000"></trkpt>
+      <trkpt lat="54.888500" lon="24.010000"></trkpt>
+      <trkpt lat="54.886000" lon="24.015000"></trkpt>
+      <trkpt lat="54.883500" lon="24.020000"></trkpt>
+      <trkpt lat="54.876428" lon="24.022796"></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
